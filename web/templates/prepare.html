@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Welcome</title>
+  </head>
+  <body>
+   <h1>{{ invitation }}</h1>
+   <ul>
+      {% for photo in photos %}
+         <li>{{ photo }}<li>
+      {% endfor %}
+   </ul>
+   <form method="POST" action="/proceed">
+     <input name="email" type="email">
+     <button type="submit">let's do this</button>
+   </form>
+  </body>
+</html>
