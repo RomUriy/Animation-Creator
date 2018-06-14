@@ -6,8 +6,10 @@ from flask import Flask
 from flask import render_template, request, flash
 from media.s3_storage import S3MediaStorage
 from media.generate_name import generate_name
+from flask_bootstrap import Bootstrap
  
 app = Flask(__name__)
+Bootstrap(app)
 
 s3 = boto3.resource('s3')
 media_storage = S3MediaStorage(s3, os.getenv('APP_BUCKET_NAME'))
