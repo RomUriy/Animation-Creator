@@ -1,0 +1,26 @@
+ssh-keygen -t rsa -b 4096 -C "romuriy@gmail.com"
+
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+cat < ~/.ssh/id_rsa.pub
+
+sudo yum install git
+sudo yum install python36
+sudo yum install tree
+sudo pip-3.6 install ansible
+sudo pip-3.6 install boto3
+sudo pip-3.6 install pytest
+sudo pip-3.6 install flask
+sudo pip-3.6 install Flask-Bootstrap
+
+ansible -i servers.ini -m ping image_me_aware
+ansible-playbook -i servers.ini image_me_aware.yml
+
+git clone git@github.com:RomUriy/Animation-Creator.git
+
+python36 test_upload.py
+python36 app.py
+
+export APP_BUCKET_NAME='240153ry'
+export APP_QUEUE_NAME='204153ry'
+export PYTHONPATH=`pwd`
