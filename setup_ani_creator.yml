@@ -1,0 +1,28 @@
+---
+- hosts: web_nodes
+  tasks:
+    - name: "Install os packages"
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ os_packages }}"
+      become: yes
+    - name: "sync my repo"
+      git:
+        repo: "{{repository_url}}"
+        dest: "{{app_root_dir}}"
+    - name: "ensure env is configured"
+      lineinfile:
+        path: ~/.bashrc
+        line: "export APP_BUCKET_NAME={{bucket_name}}"
+    - lineinfile:
+        path: ~/.bashrc
+        line: "export PYTHONPATH={{app_root_dir}}"
+
+    - raw: git config --global user.name "{{git.user}}"
+    - raw: git config --global user.email "{{git.email}}"
+    - pip:
+        name: "{{ item }}"
+        executable: pip-3.6
+      with_items: "{{ python_dependencies }}"
+      become: yes
