@@ -1,17 +1,30 @@
-<html>
-  <head>
-    <title>Welcome</title>
-  </head>
-  <body>
-   <h1>{{ invitation }}</h1>
+{% extends 'layout.html' %}
+{% block body %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"> Animation Creator</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="header"><h1>Animation Creator</h1></div>
+  <hr />
+   <h3>{{invitation}}</h3>
    <ul>
-      {% for photo in photos %}
-         <li>{{ photo }}<li>
-      {% endfor %}
+     {% for photo in photos %}
+       <li>{{photo}}</li>
+     {% endfor%}
    </ul>
    <form method="POST" action="/proceed">
-     <input name="email" type="email">
-     <button type="submit">let's do this</button>
+     <div class="row">
+     <div class="col-md-3">  
+     <input name="email" class="form-control" type="email"/>
+     </div>
+     <div class="col-md-9">
+     <button type="submit" class="btn btn-success">let's do this</button>
+     </div>   
    </form>
-  </body>
-</html>
+</div>
+
+{% endblock %}
