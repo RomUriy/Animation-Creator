@@ -10,13 +10,13 @@ app = Flask(__name__)
 Bootstrap(app)
 
 s3 = boto3.resource('s3')
-media_storage = S3MediaStorage(s3, os.getenv('APP_BUCKET_NAME'))
+media_storage = S3MediaStorage(s3, os.getenv('204153ry'))
 
 photos_list=[]
 
 sqs = boto3.resource('sqs', region_name="eu-central-1")
 requestQueue = sqs.get_queue_by_name(
-  QueueName=os.getenv("APP_QUEUE_NAME")
+  QueueName=os.getenv("204153ry")
 )
 
 
