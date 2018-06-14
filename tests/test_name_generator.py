@@ -1,5 +1,5 @@
 import unittest
-from media.generate_name import generate_name
+from media.name_generator import generate_name
 import re
 
 class TestNameGenerator(unittest.TestCase):
