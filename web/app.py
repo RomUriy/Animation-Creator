@@ -18,7 +18,7 @@ photos_list=[]
 
 sqs = boto3.resource('sqs', region_name="eu-central-1")
 requestQueue = sqs.get_queue_by_name(
-  QueueName=os.getenv("APP_QUEUE_NAME")
+  QueueName=os.getenv('APP_QUEUE_NAME')
 )
 
 @app.route("/")

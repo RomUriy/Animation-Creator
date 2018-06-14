@@ -41,3 +41,4 @@ urlgrabber==3.10
 urllib3==1.8.2
 virtualenv==15.1.0
 yum-metadata-parser==1.1.4
+flask-bootstrap==2.3.2.2
