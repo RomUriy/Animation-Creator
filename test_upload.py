@@ -1,6 +1,6 @@
 import boto3
 
-bucket_name = '204153ry'
+bucket_name = 'APP_BUCKET_NAME'
 s3 = boto3.resource('s3')
 bucket = s3.Bucket(bucket_name)
 
