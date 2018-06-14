@@ -24,3 +24,5 @@ python36 app.py
 export APP_BUCKET_NAME='240153ry'
 export APP_QUEUE_NAME='204153ry'
 export PYTHONPATH=`pwd`
+
+rm -rf */(name)
